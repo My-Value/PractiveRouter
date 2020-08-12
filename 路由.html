@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.js"></script>
+    <script>
+        window.onload=function(){
+
+            var vm=new Vue({
+                el:'#demo',
+                data:{},
+                router:new VueRouter({
+                    routes:[
+                        {"path":"/sport",component: {
+                            template:"<div>YD</div>"
+                        }},
+                        {"path":"/eat",component: {
+                            template:"<div>CF</div>"
+                        }}
+                    ]                   
+                })
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="demo">
+        <ul>
+            <li><router-link to="/sport">运动</router-link></li>
+            <li><router-link to="/eat">吃饭</router-link></li>
+            <li><router-link to="/play">玩</router-link></li>
+        </ul>
+        <div>
+			<router-view></router-view>
+		</div>
+
+    </div>
+    <template id="">
+        <h1>这是一个默认的标签</h1>
+    </template>
+
+
+
+</body>
+</html>
