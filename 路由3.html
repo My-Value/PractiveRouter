@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.js"></script>
+    <script>
+       window.onload=function(){
+            // 第一步，添加库
+        // 第四步，添加路由组件
+        var login={
+            template:'<div>欢迎来到登录页面，请登录</div>'
+        }
+        var register={
+            template:'<div>您来没有账号，请先注册</div>'
+        }
+        // 第五步，配置路由的规则，并创建路由的实例
+        var router=new VueRouter({
+            routes:[
+                {'path':'/denglu',component:login},
+                {'path':'/zhuce',component:register}
+            ]
+        })
+        // 第六步,把路由挂载到Vue根实例中
+        var vm=new Vue({
+            el:'#demo',
+            data:{},
+            router
+        })
+       }
+    </script>
+</head>
+<body>
+    <div id="demo">
+        <!-- 第二步，添加路由连接 -->
+        <ul>
+            <li><router-link to="denglu">登录</router-link></li>
+            <li><router-link to="zhuce">注册</router-link></li>
+        </ul>
+        <!-- 第三步，添加路由的填充位 -->
+        <router-view></router-view>
+    </div>
+        <!-- 第一 -->
+
+
+
+</body>
+</html>
