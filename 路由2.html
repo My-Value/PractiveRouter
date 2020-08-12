@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.js"></script>
+    <script>
+        window.onload=function(){          
+            // 第四步，定义路由的组件
+            var a1={
+                template:'<div>这是一号链接的路由</div>'
+            }
+            var a2={
+                template:'<div>这是二号链接的路由</div>'
+            }
+            // 第五步配置路由规则，并创建路由的实例
+            var router=new VueRouter({
+                // routers是路由规则数组
+                routes:[
+
+                    // {path:'/A1',component:a1},
+                    {path:'/A1',component:a1},
+                    {path:'/A2',component:a2},
+                ]
+            })
+            var vm=new Vue({
+                el:'#demo',
+                data:{},
+                router
+            })  
+        }
+    </script>
+</head>
+<body>
+    <!-- 路由第一步添加路由的库 -->
+    <div id="demo">
+        <!--第二步，添加路由的链接 -->
+        <ul>
+            <li><router-link to="/A1">1号链接</router-link></li>
+            <li><router-link to="/A2">2号链接</router-link></li>
+        </ul>
+        <!-- 第三步，添加路由的占位符 -->
+        <router-view></router-view>
+    </div>
+
+
+
+    
+</body>
+</html>
