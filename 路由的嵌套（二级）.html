@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.js"></script>
+    <script>
+        window.onload=function(){
+            // 第四步。定义路由的组件
+            var a={
+                template:'<div>这是A号店铺的路由组件</div>'
+            }
+            var b={
+                template:'<div>这是B号店铺的嵌套路由组件</div>'
+                // // 子路由的连接
+                // <router-link to="path"></router-link>
+                // template:'<div>这是B号店铺的嵌套路由组件</div><hr/><router-link to="/B/B-1">这是B号店铺的B-1子组件</router-link><router-link to="/B/B-1">这是B号店铺的B-2子组件</router-link>'
+            }
+            // 第五步，配置路由的规则并创建路由的实例
+            var router =new VueRouter({
+                routes:[
+                    {path:'/A',component:a},
+                    {path:'/B',component:b}
+                ]
+            })
+            // 第六步把路由挂载到Vue跟实例中
+            var vm=new Vue({
+                el:'#demo',
+                data:{},
+                router,
+                          
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+    <!-- 第一步，导入路由的库 -->
+
+    <!-- 第二步，添加路由的链接 -->
+    <div id="demo">
+        <ul>
+            <li><router-link to="A">这是A号店铺的链接</router-link></li>
+            <li>
+                <router-link to="B">这是B号店铺的链接</router-link>
+            </li>
+        </ul>
+      
+    <!-- 第三步，添加路由的填充位 -->
+        <router-view></router-view>
+    </div>
+</body>
+</html>
